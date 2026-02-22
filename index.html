@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Memory Master — Remember the Order</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link href="styles.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="container">
+    <h1><span class="title-icon" aria-hidden="true">🧠</span> <span class="title-text">Memory Master</span></h1>
+    <p class="subtitle">Remember the order. Level up and get more items.</p>
+
+    <div id="start-screen" class="screen active">
+      <div class="start-screen">
+        <p class="intro">
+          <strong>Memory Master</strong> is a game where you <strong>memorize the order</strong> of items shown on screen. 
+          A sequence appears for a few seconds, then disappears — you must tap or click the same items <strong>in the same order</strong> to pass the level.
+        </p>
+
+        <p class="rules-title">What you'll see each round</p>
+        <div class="level-preview">
+          <div class="level-preview-item">
+            <div class="preview-icon">A → B → C</div>
+            <div class="preview-label">Letters</div>
+          </div>
+          <div class="level-preview-item">
+            <div class="preview-icon">🐶 🐱 🐭</div>
+            <div class="preview-label">Animals</div>
+          </div>
+          <div class="level-preview-item">
+            <div class="preview-icon small">Doctor · Life · Orange</div>
+            <div class="preview-label">Words</div>
+          </div>
+          <div class="level-preview-item">
+            <div class="preview-icon small">123 · 565 · 456</div>
+            <div class="preview-label">Numbers</div>
+          </div>
+        </div>
+
+        <p class="rules-title">Rules</p>
+        <ul class="rules">
+          <li>Watch the sequence while the timer counts down; then it disappears.</li>
+          <li>Click the items below in the <strong>exact same order</strong> you saw them.</li>
+          <li>You have <strong>3 lives</strong> — a wrong order costs one life.</li>
+          <li>You get <strong>3 hints</strong> per game to show the sequence again for 5 seconds.</li>
+          <li>Each new level adds more items; levels rotate between Letters, Animals, Words, and Numbers.</li>
+        </ul>
+
+        <div class="start-btn-wrap">
+          <button class="btn btn-primary" id="start-btn">Start Game</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="game-screen" class="screen">
+      <div style="text-align: center;">
+        <span class="level-badge" id="level-badge">Level 1 — Letters</span>
+      </div>
+      <p class="phase-hint" id="phase-hint">Watch the sequence...</p>
+      <div id="memorize-timer" class="memorize-timer" style="display: none;"></div>
+
+      <div class="sequence-area" id="sequence-area"></div>
+      <div class="hint-action" id="hint-action" style="display: none;">
+        <button type="button" class="btn btn-hint" id="hint-btn">💡 Show sequence again (5s)</button>
+      </div>
+      <div class="selected-order" id="selected-order"></div>
+      <div class="choices-grid" id="choices-grid"></div>
+
+      <div class="lives-row">
+        <div class="lives-group">
+          <span class="lives-label">Lives:</span>
+          <div class="lives" id="lives"></div>
+        </div>
+        <div class="hints-group">
+          <span class="hints-label">Show sequence again:</span>
+          <div class="hints-dots" id="hints-dots"></div>
+        </div>
+      </div>
+      <div class="actions">
+        <button class="btn btn-primary" id="check-btn" style="display: none;">Check</button>
+        <button class="btn btn-primary" id="next-btn" style="display: none;">Next Level</button>
+      </div>
+    </div>
+
+    <div id="result-screen" class="screen">
+      <div class="result-msg" id="result-msg"></div>
+      <div class="actions">
+        <button class="btn btn-primary" id="play-again-btn">Play Again</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
